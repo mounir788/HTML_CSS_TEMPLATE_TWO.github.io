@@ -274,7 +274,6 @@ a {
   min-height: calc(100vh - 72px);
   display: flex;
   align-items: center;
-
   padding-bottom: 120px;
 }
 .landing .text {
@@ -285,17 +284,46 @@ a {
     text-align: center;
   }
 }
-.landing .text h1 {
+.landing .text .hold {
+  width: fit-content;
+}
+.landing .text .head {
+  width: fit-content;
   font-size: 40px;
+  width: fit-content;
   margin: 0;
   letter-spacing: -2px;
+  font-weight: bold;
+  color: black;
+  border-right: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  animation: control-width 3s steps(24) 1s both, blink 0.5s infinite;
+}
+
+@keyframes control-width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  from {
+    border-color: black;
+  }
+  to {
+    border-color: transparent;
+  }
 }
 @media (max-width: 767px) {
-  .landing .text h1 {
+  .landing .text .head {
     font-size: 28px;
   }
 }
-.landing .text p {
+.landing .text .not-head {
   max-width: 500px;
   line-height: 1.7;
   font-size: 20px;
