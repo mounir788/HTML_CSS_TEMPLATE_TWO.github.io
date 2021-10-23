@@ -959,6 +959,8 @@ a {
   gap: 10px;
   justify-content: center;
   margin: 20px auto;
+  perspective: 300px;
+  perspective-origin: center;
 }
 .events .info .time .unit {
   display: flex;
@@ -967,6 +969,9 @@ a {
   border-radius: 6px;
   width: 75px;
   transition: var(--main-transition);
+}
+.events .info .time .unit:hover {
+  transform: translateZ(5px);
 }
 .events .info .time .unit span {
   display: block;
