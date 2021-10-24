@@ -96,7 +96,17 @@ a {
   border: 2px solid white;
   transition-delay: 0.5s;
 }
-
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--secton-background);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 10px;
+  height: 150px;
+}
 /* End Global Variables */
 /* Start Header */
 .header {
@@ -115,12 +125,14 @@ a {
 }
 .header .container .logo {
   font-weight: bold;
-  font-size: 26px;
-  color: var(--main-color);
+  font-size: 28px;
   height: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  -webkit-text-stroke: 1px var(--main-color);
+  animation: text-fill 0.5s 1s linear both;
 }
 @media (max-width: 767px) {
   .header .container .logo {
@@ -300,23 +312,6 @@ a {
   overflow: hidden;
   position: relative;
   animation: control-width 3s steps(24) 1s both, blink 0.5s infinite;
-}
-
-@keyframes control-width {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-@keyframes blink {
-  from {
-    border-color: black;
-  }
-  to {
-    border-color: transparent;
-  }
 }
 @media (max-width: 767px) {
   .landing .text .head {
@@ -1103,6 +1098,7 @@ a {
 .pricing .popular .label {
   writing-mode: vertical-rl;
   position: absolute;
+  top: -8px;
   right: 15px;
   width: 40px;
   background-color: var(--main-color);
@@ -1118,6 +1114,16 @@ a {
   border-style: solid;
   border-width: 20px;
   border-color: transparent transparent white transparent;
+}
+.pricing .popular .label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -8px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: transparent transparent var(--main-color-alt)
+    var(--main-color-alt);
 }
 .pricing .box img {
   width: 80px;
@@ -1330,7 +1336,7 @@ a {
   flex-basis: 100%;
   position: relative;
   color: white;
-  background-image: url(../images/discount-background1.jpg);
+  background-image: url(../images/discount-background-1.jpg);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -1586,10 +1592,34 @@ a {
 @keyframes change-background {
   0%,
   100% {
-    background-image: url(../images/discount-background1.jpg);
+    background-image: url(../images/discount-background-1.jpg);
   }
   50% {
-    background-image: url(../images/discount-background2.jpg);
+    background-image: url(../images/discount-background-2.jpg);
+  }
+}
+@keyframes control-width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  from {
+    border-color: black;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+@keyframes text-fill {
+  from {
+    color: white;
+  }
+  to {
+    color: var(--main-color);
   }
 }
 /* End Animation */
